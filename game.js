@@ -1,6 +1,6 @@
 const correctAnswer =['A', 'B', 'B', 'A'];
 const form = document.querySelector('.quiz-form')
-
+const result = document.querySelector('.result');
 form.addEventListener('submit', e =>{
     e.preventDefault();
 
@@ -13,9 +13,20 @@ userAnsers.forEach((answer, index)=>{
     if(answer === correctAnswer[index]){
         score +=25;
     }
+    
 
 });
 
-console.log(score);
+// Score results show resuls by adding a new query selector to look inside the results of the span tag and change the content to refelect userScore
+  scrollTo(0,0);
+result.querySelector('span').textContent = `${score}%`;
 
+    result.classList.remove('d-none');
 });
+
+// Add more user friendly additions like an automatic scroll up function to show user the score
+
+
+
+
+
